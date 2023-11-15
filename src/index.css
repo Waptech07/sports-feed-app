@@ -1,1 +1,8 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
+.active {
+    border-bottom: 3px solid #f60817;
+    display: inline-block;
+}
