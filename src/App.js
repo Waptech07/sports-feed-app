@@ -14,26 +14,18 @@ function App() {
   return (
     <>
       <BrowserRouter>
-        <Navbar />
         <div className="App bg-[#030E29] w-full h-screen">
+          <Navbar />
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/sports" element={<Sports />} />
-            <Route
-              path="/transfers"
-              element={<Transfers />}
-            />
-            <Route
-              path="/news"
-              element={<News />}
-            />
+            <Route path="/transfers" element={<Transfers />} />
+            <Route path="/news" element={<News />} />
             <Route path="/competitions" element={<Competitions />} />
             <Route path="/team" element={<Team />} />
             <Route path="/about" element={<About />} />
-            <Route
-              path="/live"
-              element={<Live />}
-            />
+            <Route path="/live" element={<Live />} />
+            <Route path="/login" element={<Live />} />
           </Routes>
         </div>
       </BrowserRouter>
