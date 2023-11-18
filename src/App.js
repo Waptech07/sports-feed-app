@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Navbar from "./components/Navbar";
-import Home from "./pages/home/Home";
+// import Home from "./pages/home/Home";
 import Sports from "./pages/sports/Sports";
 import Transfers from "./pages/transfers/Transfers";
 import News from "./pages/news/News"
@@ -17,7 +17,7 @@ function App() {
           <Navbar />
         <div className="App bg-[#030E29] w-full h-screen">
           <Routes>
-            <Route path="/" element={<Home />} />
+            
             <Route path="/sports" element={<Sports />} />
             <Route path="/transfers" element={<Transfers />} />
             <Route path="/news" element={<News />} />
