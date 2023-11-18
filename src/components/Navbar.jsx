@@ -35,8 +35,8 @@ const Navbar = () => {
             <div
               class={
                 isActive
-                  ? "duration-500 lg:static absolute lg:min-h-fit min-h-[40vh] left-0 top-[-100%] lg:w-auto w-full flex items-center px-5"
-                  : "duration-500 lg:static absolute lg:min-h-fit min-h-[40vh] left-0 top-[12%] lg:w-auto w-full flex items-center px-5"
+                  ? "duration-500 lg:static absolute lg:min-h-fit min-h-[40vh] top-24 left-[-100%] lg:w-auto w-50 flex items-center px-5"
+                  : "duration-500 lg:static absolute lg:min-h-fit min-h-[40vh] top-24 bg-[#890E29] left-[0] lg:w-auto w-50 flex items-center px-5"
               }
             >
               <ul className="flex lg:flex-row flex-col md:items-center text-white text-lg">
