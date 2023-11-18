@@ -14,8 +14,8 @@ function App() {
   return (
     <>
       <BrowserRouter>
-        <div className="App bg-[#030E29] w-full h-screen">
           <Navbar />
+        <div className="App bg-[#030E29] w-full h-screen">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/sports" element={<Sports />} />
