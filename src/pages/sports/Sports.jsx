@@ -1,13 +1,13 @@
 import React from "react";
 
-const Home = () => {
+const Sports = () => {
   return (
     <>
       <div className="bg-indigo flex items-center justify-center">
-        <h2 className="text-white">HOME</h2>
+        <h2 className="text-white">SPORTS</h2>
       </div>
     </>
   );
 };
 
-export default Home;
+export default Sports;
