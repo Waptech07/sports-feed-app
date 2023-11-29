@@ -2,10 +2,11 @@ import React, { useContext, useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { IoCloseOutline } from 'react-icons/io5'
 import { SidebarContext } from '../context/sidebarContext'
-import { sidebarData } from '../constants/sidebarObj'
+import { sidebarData } from '../constants/navigationObj'
+import Logo from './Logo'
 
 const Sidebar = () => {
-  const { isOpened, setIsOpended } = useContext(SidebarContext);
+  const { isOpened, setIsOpened } = useContext(SidebarContext);
   const [currentDeviceWidth, setCurrentDeviceWidth] = useState(window.innerWidth);
 
   // change windows size change depending on current device width
@@ -18,23 +19,23 @@ const Sidebar = () => {
     // if current width is < or = to 768px, setIsOpended should be false so that sidebar closes on tablets and mobile devices by default, but opened by default on large screen devices
     const updatedSidebar = () => {
       if (currentDeviceWidth <= 768) {
-        setIsOpended(false);
+        setIsOpened(false);
       }
     }
     updatedSidebar();
     window.addEventListener('load', updatedSidebar)
-  }, [currentDeviceWidth, setIsOpended]);
+  }, [currentDeviceWidth, setIsOpened]);
 
   return (
     <>
-      <aside className={`${isOpened ? "-left-0" : "-left-[20%]"} w-[20%] overflow-hidden py-10 px-3 h-full fixed top-0 bottom-0 bg-black shadow-xl duration-500`}>
+      <aside className={`${isOpened ? "-left-0" : "-left-[20%]"} w-[20%] overflow-hidden py-10 px-3 h-full fixed top-0 bottom-0 bg-darkBg border-r border-r-gray-500 z-20 shadow-2xl duration-500`}>
         {/* sidebar brand */}
         <div className="flex items-center">
           <div className='mr-auto'>
-            <h1 className='text-white font-bold text-xl'><span className='text-orange-600 text-2xl'>Correct</span>Score</h1>
+            <Logo />
           </div>
           <div>
-            <button onClick={() => setIsOpended(false)} className='bg-transparent border-0 outline-none text-3xl text-white'>
+            <button onClick={() => setIsOpened(false)} className='bg-transparent border-0 outline-none text-3xl text-white'>
               <IoCloseOutline />
             </button>
           </div>
