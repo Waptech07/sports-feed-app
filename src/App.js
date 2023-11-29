@@ -1,21 +1,22 @@
 import React from "react";
-import Navbar from "./components/Navbar";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./pages/home/home";
 import Sports from "./pages/sports/Sports";
 import Transfers from "./pages/transfers/Transfers";
-import News from "./pages/news/News"
+import News from "./pages/news/News";
 import Competitions from "./pages/competitions/Competitions";
 import Team from "./pages/teams/Team";
 import About from "./pages/about/About";
 import Live from "./pages/live/Live";
 import Sidebar from "./components/sidebar";
+import Navbar from "./components/navbar";
 
 const App = () => {
   return (
     <>
-      <Router>
-        <Sidebar />
+      <main className="min-h-screen bg-darkBg">
+        <Router>
+          <Sidebar />
           <Navbar />
           <Routes>
             <Route path="/" element={<Home />} />
@@ -28,7 +29,8 @@ const App = () => {
             <Route path="/live" element={<Live />} />
             <Route path="/login" element={<Live />} />
           </Routes>
-      </Router>
+        </Router>
+      </main>
     </>
   );
 };
