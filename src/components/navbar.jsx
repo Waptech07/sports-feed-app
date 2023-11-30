@@ -1,5 +1,5 @@
 import { React, useContext } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
 import Logo from "./Logo";
 import { LiaBarsSolid } from "react-icons/lia";
 import { SidebarContext } from "../context/sidebarContext";
@@ -7,7 +7,9 @@ import { navbarData } from "../constants/navigationObj";
 import Button from "../utils/button";
 
 const Navbar = () => {
-  const { setIsOpened } = useContext(SidebarContext)
+  const { setIsOpened } = useContext(SidebarContext);
+  const location = useLocation();
+  const navigator = useNavigate();
 
   return (
     <>
@@ -18,7 +20,7 @@ const Navbar = () => {
             <LiaBarsSolid />
           </button>
           <div className="flex">
-            <Link to={'/'}>
+            <Link to={'/'} className="outline-none">
               <Logo />
             </Link>
           </div>
@@ -28,8 +30,8 @@ const Navbar = () => {
               const { linkName, linkPath, linkIcon } = data; // object destructuring
 
               return (
-                <NavLink to={linkPath} key={index}>
-                  <div className="flex duration-500 hover:text-primary items-center gap-3 text-white text-base">
+                <NavLink role="link" aria-label={`click to enter ${linkName} page`} to={linkPath} key={index} className={'outline-none'}>
+                  <div className={location.pathname === linkPath ? "flex duration-500 hover:text-primary items-center gap-2 text-primary text-base" : "flex duration-500 hover:text-primary items-center gap-2 text-white text-base"}>
                     {linkIcon}
                     <div>
                       {linkName}
@@ -41,19 +43,21 @@ const Navbar = () => {
           </div>
 
           <div className="flex gap-5">
-            <Link to={'/log-in'} className="no-underline outline-none">
-              <Button 
-                text={'Log in'}
-                variant={true}
-              />
-            </Link>
+            <Button
+              onClick={() => navigator('/log-in')}
+              text={'Log in'}
+              variant={true}
+              role="link"
+              ariaLabel="Click to enter log in page"
+            />
 
-            <Link to={'/sign-up'} className="no-underline outline-none">
-              <Button 
-                text={'Sign up'}
-                variant={false}
-              />
-            </Link>
+            <Button
+              onClick={() => navigator('/sign-up')}
+              text={'Sign up'}
+              variant={false}
+              role="link"
+              ariaLabel="Press enter to create an account today!"
+            />
           </div>
         </nav>
       </header>
